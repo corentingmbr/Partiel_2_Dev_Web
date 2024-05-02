@@ -19,7 +19,7 @@
 require_once('pdo.php');
 
 $resultat = $dbPDO->prepare("
-    SELECT film.titre, genre.libelle, realisateur.prenom, realisateur.nom, film.`date_de_sortie` as annee
+    SELECT film.id, film.titre, genre.libelle, realisateur.prenom, realisateur.nom, film.`date_de_sortie` as annee
     FROM film
     INNER JOIN genre ON film.genre = genre.id
     INNER JOIN realisateur ON film.realisateur = realisateur.id
@@ -30,8 +30,7 @@ $films = $resultat->fetchAll(PDO::FETCH_CLASS);
 echo"<h1 class='title'>Liste des meilleurs Films des années 2010 : </h1>";
 
 foreach($films as $film) {
-    echo "<li class='list-item'> $film->titre ( $film->libelle de $film->prenom $film->nom , $film->annee ) </li>";
-}
+    echo "<li class='list-item'><a href='film.php?id=" . $film->id . "'>" . $film->titre . " (" . $film->libelle . " de " . $film->prenom . " " . $film->nom . ", " . $film->annee . ")</a></li>";}
 ?>
 
 </body>
