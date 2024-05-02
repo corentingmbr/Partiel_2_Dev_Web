@@ -4,6 +4,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: 'Jersey 15', sans-serif;
+        }
+        li {
+            font-family: 'Raleway', sans-serif;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,10 +27,10 @@ $resultat = $dbPDO->prepare("
 $resultat->execute();
 $films = $resultat->fetchAll(PDO::FETCH_CLASS);
 
-echo"<h1>Liste des meilleurs Films des années 2010 : </h1>";
+echo"<h1 class='title'>Liste des meilleurs Films des années 2010 : </h1>";
 
 foreach($films as $film) {
-    echo "<li> $film->titre ( $film->libelle de $film->prenom $film->nom , $film->annee ) </li>";
+    echo "<li class='list-item'> $film->titre ( $film->libelle de $film->prenom $film->nom , $film->annee ) </li>";
 }
 ?>
 
