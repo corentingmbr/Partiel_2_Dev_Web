@@ -30,7 +30,8 @@ $films = $resultat->fetchAll(PDO::FETCH_CLASS);
 echo"<h1 class='title'>Liste des meilleurs Films des années 2010 : </h1>";
 
 foreach($films as $film) {
-    echo "<li class='list-item'><a href='film.php?id=" . $film->id . "'>" . $film->titre . " </a>(" . $film->libelle . " de " . $film->prenom . " " . $film->nom . ", " . $film->annee . ")</li>";}
+    echo "<li class='list-item'><a href='film.php?id=" . $film->id . "'>" . $film->titre . " </a>(" . $film->libelle . " de <a href='filmmaker.php?id=" . $film->realisateur . "'>" . $film->prenom . " " . $film->nom .  "</a> , " . $film->annee . ")</li>";
+}
 ?>
 
 </body>
