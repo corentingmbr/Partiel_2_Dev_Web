@@ -22,7 +22,7 @@ require_once('pdo.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
     $resultat = $dbPDO->prepare("
-        SELECT film.titre, genre.libelle, realisateur.prenom, realisateur.nom, film.date_de_sortie, film.duree
+        SELECT film.titre, genre.libelle, realisateur.prenom, realisateur.nom, film.date_de_sortie, film.duree , film.description
         FROM film
         INNER JOIN genre ON film.genre = genre.id
         INNER JOIN realisateur ON film.realisateur = realisateur.id
